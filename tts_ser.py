@@ -12,12 +12,11 @@ import pandas as pd
 # from datasets import load_dataset, Audio
 # https://huggingface.co/datasets/DavronSherbaev/uzbekvoice-filtered
 dataset = load_dataset("DavronSherbaev/uzbekvoice-filtered", split="train")
-dataset
 
-# half_size = len(dataset) // 16
+half_size = len(dataset) // 16
 
-# # Select the first half of the dataset
-# dataset = dataset.select(range(half_size))
+# Select the first half of the dataset
+dataset = dataset.select(range(half_size))
 
 # print(dataset)
 
@@ -343,7 +342,6 @@ trainer = Seq2SeqTrainer(
       tokenizer=processor,
   )
 
-dataset['train'].shape
 
 trainer.train()
 
