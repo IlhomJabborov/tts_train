@@ -216,7 +216,6 @@ def prepare_dataset(example):
     return example
 
 processed_example = prepare_dataset(dataset[0])
-list(processed_example.keys())
 
 processed_example["speaker_embeddings"].shape
 
@@ -229,7 +228,6 @@ def is_not_too_long(input_ids):
     input_length = len(input_ids)
     return input_length <= 600
 dataset = dataset.filter(is_not_too_long, input_columns=["input_ids"])
-len(dataset)
 
 dataset = dataset.train_test_split(test_size=0.2)
 
